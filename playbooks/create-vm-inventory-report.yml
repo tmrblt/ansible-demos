@@ -1,0 +1,14 @@
+---
+- name: create vm inventory report
+  hosts: localhost
+  vars:
+    resource_group: 'openenv-9kk9c'
+  tasks:
+  
+  - name: get vm facts from azure
+    azure_rm_virtualmachine_info:
+      resource_group: myResourceGroup
+    register: azure_vm_facts
+
+  - debug:
+      var: azure_vm_facts
