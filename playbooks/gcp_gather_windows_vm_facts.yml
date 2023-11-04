@@ -1,0 +1,8 @@
+---
+- name: gather windows vm facts
+  hosts: windows
+  gather_facts: true
+  tasks:
+  - name: gather facts
+    debug:
+      var: ansible_facts
