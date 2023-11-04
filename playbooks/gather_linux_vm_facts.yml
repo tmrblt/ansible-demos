@@ -4,8 +4,15 @@
   gather_facts: true
   tasks:
   - name: set vm facts
-    set_fact:
-      vm_list: "{% for host in groups['linux'] %} {{hostvars[inventory_hostname].ansible_hostname}} - {{hostvars[host].ansible_distribution}} - {{ansible_facts['kernel']}} {% endfor %}"
+    set_fact: 
+      vm_list: >
+        "<tr>
+         {% for host in groups['linux'] %}
+           <td>{{hostvars[inventory_hostname].ansible_hostname}}</td>
+           <td>{{hostvars[host].ansible_distribution}}</td>
+           <td>{{ansible_facts['kernel']}}</td>
+         {% endfor %}
+         <tr>"
   - name: print vm_list
     debug:
       var: vm_list
