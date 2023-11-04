@@ -1,0 +1,15 @@
+---
+- name: get vm inventory of GCP
+  hosts: localhost
+  vars:
+    project: 'openenv-czkgd'
+    zone: 'us-east1-b'
+  tasks:
+  - name: get info on an instance
+    gcp_compute_instance_info:
+      zone: us-central1-a
+      project: "{{ project }}"
+    register: gcp_vm_facts
+
+  - debug:
+      var: gcp_vm_facts
