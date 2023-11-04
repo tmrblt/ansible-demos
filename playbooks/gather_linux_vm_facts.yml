@@ -8,4 +8,4 @@
       var: ansible_facts
   - name: set vm facts
     set_fact:
-      vm_list: {{for host in groups['linux'] '<tr><td>' {{hostvars[host].ansible_hostname}} '</td><td>' {{hostvars[host].ansible_distribution}} {{hostvars[host].ansible_distribution_version}} '</td><td>' {{ansible_facts['kernel']}} '</td><td>' {{ if hostvars[host].updatelist is defined }}{{ for item in hostvars[host].updatelist }}' - '{{ item }}'<br>'{{ endfor }}{{ endif }}'</td></tr>'{{ endfor }}
+      vm_list: "{{for host in groups['linux'] '<tr><td>' {{hostvars[host].ansible_hostname}} '</td><td>' {{hostvars[host].ansible_distribution}} {{hostvars[host].ansible_distribution_version}} '</td><td>' {{ansible_facts['kernel']}} '</td><td>' {{ if hostvars[host].updatelist is defined }}{{ for item in hostvars[host].updatelist }}' - '{{ item }}'<br>'{{ endfor }}{{ endif }}'</td></tr>'{{ endfor }}"
