@@ -3,6 +3,9 @@
   hosts: linux
   gather_facts: true
   tasks:
+  - name: print vm facts
+    debug:
+      var: ansible_facts
   - name: set vm facts
     set_fact: 
       vm_list: >
