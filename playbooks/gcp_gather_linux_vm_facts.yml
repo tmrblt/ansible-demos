@@ -1,6 +1,6 @@
 ---
-- name: gather vm facts
-  hosts: all
+- name: gather linux vm facts
+  hosts: linux
   gather_facts: true
   tasks:
   - name: gather facts
