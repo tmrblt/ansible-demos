@@ -14,6 +14,7 @@
            <td>{{hostvars[inventory_hostname].ansible_hostname}}</td>
            <td>{{ansible_facts.distribution}} {{ansible_facts.distribution_version}}</td>
            <td>{{ansible_facts['kernel']}}</td>
+           <td>{{hostvars[inventory_hostname].project}}</td>
          {% endfor %}
          <tr>"
   - name: print vm_list
