@@ -7,7 +7,7 @@
   
   - name: get vm facts from azure
     azure_rm_virtualmachine_info:
-      resource_group: myResourceGroup
+      resource_group: "{{ resource_group }}"
     register: azure_vm_facts
 
   - debug:
