@@ -8,4 +8,4 @@
       var: ansible_facts
   - name: set vm facts
     set_fact:
-      vm_list: "{{hostvars[host].ansible_hostname}}"
+      vm_list: "{{hostvars[inventory_hostname].ansible_hostname}}"
