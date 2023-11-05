@@ -1,8 +1,8 @@
 ---
 conditional_groups:
   azure: true
-  rhel-family: "'rhel' or 'CentOS' in image.offer"
-  debian-family: "'debian' or 'ubuntu' in image.offer"
+  rhel-family: "'rhel' or 'RHEL' or 'CentOS' or 'sles' or 'SUSE' in image.offer"
+  debian-family: "'Debian' or 'ubuntu' in image.offer"
   linux: "'linux' in os_profile.system" 
   windows: "'WindowsServer' in image.offer"
 default_host_filters: []
