@@ -12,6 +12,7 @@ compose:
   gce_name: name
   gce_network: networkInterfaces[0].network.name
   gce_private_ip: networkInterfaces[0].networkIP
+  gce_project: project
   gce_public_ip: networkInterfaces[0].accessConfigs[0].natIP | default(None)
   gce_status: status
   gce_subnetwork: networkInterfaces[0].subnetwork.name
@@ -22,6 +23,10 @@ hostnames:
 plugin: google.cloud.gcp_compute
 retrieve_image_info: true
 use_contrib_script_compatible_sanitization: true
+keyed_groups:
+- key: gce_project
+  prefix: ''
+  separator: ''
 groups:
   linux: "'rhel' in image|lower or 'centos' in image|lower or 'ubuntu' in image|lower or 'debian' in image|lower or 'sles' in image|lower or 'suse' in image|lower"
   windows: "'windows' in image|lower"
