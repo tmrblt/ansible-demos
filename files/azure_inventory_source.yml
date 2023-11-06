@@ -2,6 +2,16 @@
 conditional_groups:
   windows: "('windows') in os_profile.system"
   linux: "('linux') in os_profile.system"  
+  rhel: "'rhel' in image.offer|lower"
+  centos: "'centos' in image.offer|lower"
+  ubuntu: "'ubuntu' in image.offer|lower"
+  debian: "'debian' in image.offer|lower"
+  opensuse: "'opensuse' in image.offer|lower"
+  sles: "'sles' in image.offer|lower"
+  windows_2012: "'windows' in image.offer|lower and '2012' in image.sku|lower"
+  windows_2016: "'windows' in image.offer|lower and '2016' in image.sku|lower"
+  windows_2019: "'windows' in image.offer|lower and '2019' in image.sku|lower"
+  windows_2022: "'windows' in image.offer|lower and '2022' in image.sku|lower"
 default_host_filters: []
 fail_on_template_errors: false
 hostvar_expressions:
