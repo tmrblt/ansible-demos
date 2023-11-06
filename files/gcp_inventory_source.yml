@@ -30,3 +30,13 @@ keyed_groups:
 groups:
   linux: "'rhel' in image|lower or 'centos' in image|lower or 'ubuntu' in image|lower or 'debian' in image|lower or 'sles' in image|lower or 'suse' in image|lower"
   windows: "'windows' in image|lower"
+  rhel: "'rhel' in image|lower"
+  centos: "'centos' in image|lower"
+  ubuntu: "'ubuntu' in image|lower"
+  debian: "'debian' in image|lower"
+  opensuse: "'opensuse' in image|lower"
+  sles: "'sles' in image|lower"
+  windows_2012: "'windows' in image|lower and '2012' in image|lower"
+  windows_2016: "'windows' in image|lower and '2016' in image|lower"
+  windows_2019: "'windows' in image|lower and '2019' in image|lower"
+  windows_2022: "'windows' in image|lower and '2022' in image|lower"
