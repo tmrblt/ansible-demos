@@ -3,8 +3,6 @@ conditional_groups:
   windows: "('windows') in os_profile.system"
   linux: "('linux') in os_profile.system"  
 default_host_filters: []
-exclude_host_filters:
-- powerstate != 'running'
 fail_on_template_errors: false
 hostvar_expressions:
   os_group: os_profile.system
