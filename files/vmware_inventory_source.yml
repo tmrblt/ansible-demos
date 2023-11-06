@@ -16,6 +16,6 @@ keyed_groups:
   prefix: "vmware_tag_os_category_"
   separator: ""
 groups:
-  linux: "'rhel' in config.guestId or 'centos' in config.guestId or 'ubuntu' in config.guestId or 'debian' in config.guestId or 'sles' in config.guestId or 'suse' in config.guestId"
+  linux: "'rhel' in config.guestId or 'centos' in config.guestId or 'ubuntu' in config.guestId or 'debian' in config.guestId or 'sles' in config.guestId or 'suse' in config.guestId or 'bsd' in config.guestId or 'linux' in config.guestId|lower"
   windows: "'win' in config.guestId"
 with_nested_properties: false
