@@ -9,8 +9,6 @@ hostnames:
 properties:
 - config
 - runtime
-filters:
-- runtime.powerState == "poweredOn"
 keyed_groups:
 - key: tag_category.OS
   prefix: "vmware_tag_os_category_"
