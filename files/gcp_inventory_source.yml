@@ -46,7 +46,7 @@ plugin: google.cloud.gcp_compute
 retrieve_image_info: true
 use_contrib_script_compatible_sanitization: true
 groups:
-  rhel-family: "('rhel' or 'centos') in gce_image"
-  debian-family: "('ubuntu' or 'debian') in gce_image"
-  linux: "('rhel' or 'centos' or 'ubuntu' or 'debian') in gce_image"
-  windows: "'windows' in gce_image"
+  rhel-family: "('rhel' or 'centos') in gce_image|lower"
+  debian-family: "('ubuntu' or 'debian') in gce_image|lower"
+  linux: "('rhel' or 'centos' or 'ubuntu' or 'debian') in gce_image|lower"
+  windows: "'windows' in gce_image|lower"
