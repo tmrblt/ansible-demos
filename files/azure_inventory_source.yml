@@ -19,27 +19,10 @@ hostvar_expressions:
   public_ip_name: public_ip_name if public_ip_name is defined else None
   tags: tags if tags else None
   type: resource_type
-#  ansible_connection: "'winrm' if 'windows' in os_profile['system']"
-#  ansible_winrm_transport: "'basic' if 'windows' in os_profile['system']"
 keyed_groups:
 - key: resource_group
   prefix: ''
   separator: ''
-#- key: os_disk.operating_system_type
-#  prefix: ''
-#  separator: ''
-#- key: dict(tags.keys() | map("regex_replace", "^(.*)$", "\1_") | list | zip(tags.values() | list)) if tags else []
-#  prefix: ''
-#  separator: ''
-#- key: location
-#  prefix: ''
-#  separator: ''
-#- key: tags.keys() | list if tags else []
-#  prefix: ''
-#  separator: ''
-#- key: security_group
-#  prefix: ''
-#  separator: ''
 plain_host_names: true
 plugin: azure.azcollection.azure_rm
 use_contrib_script_compatible_sanitization: true
