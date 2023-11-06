@@ -6,6 +6,8 @@ compose:
   ansible_winrm_transport: "'ntlm' if 'win' in config.guestId else None"
 hostnames:
 - 'config.name'
+filters:
+  - runtime.powerState == "poweredOn"
 properties:
 - config
 - runtime
