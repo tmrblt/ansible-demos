@@ -1,12 +1,16 @@
 ---
 conditional_groups:
-  windows: "('WindowsServer') in image.offer"
+  windows: "('windows') in os_profile.system"
   linux: "('linux') in os_profile.system"  
-  rhel-family: "('rhel' or 'RHEL' or 'CentOS' or 'sles' or 'SUSE') in image.offer"
-  debian-family: "('Debian' or 'ubuntu') in image.offer"
 default_host_filters: []
+exclude_host_filters:
+- powerstate != 'running'
 fail_on_template_errors: false
 hostvar_expressions:
+  os_group: os_profile.system
+  ansible_connection: "'winrm' if 'windows' in os_profile.system else ssh"
+  ansible_port: "'5985' if 'windows' in os_profile.system else 22"
+  ansible_winrm_transport: "'ntlm' if 'windows' in os_profile.system else None"
   computer_name: name
   private_ip: private_ipv4_addresses[0] if private_ipv4_addresses else None
   provisioning_state: provisioning_state | title
@@ -15,6 +19,8 @@ hostvar_expressions:
   public_ip_name: public_ip_name if public_ip_name is defined else None
   tags: tags if tags else None
   type: resource_type
+#  ansible_connection: "'winrm' if 'windows' in os_profile['system']"
+#  ansible_winrm_transport: "'basic' if 'windows' in os_profile['system']"
 keyed_groups:
 - key: resource_group
   prefix: ''
@@ -37,3 +43,5 @@ keyed_groups:
 plain_host_names: true
 plugin: azure.azcollection.azure_rm
 use_contrib_script_compatible_sanitization: true
+compose:
+  ansible_host: private_ipv4_addresses[0] if private_ipv4_addresses else None
