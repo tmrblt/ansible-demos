@@ -21,8 +21,6 @@ compose:
 hostnames:
 - name
 plugin: google.cloud.gcp_compute
-filters:
-  - status = RUNNING
 retrieve_image_info: true
 use_contrib_script_compatible_sanitization: true
 keyed_groups:
