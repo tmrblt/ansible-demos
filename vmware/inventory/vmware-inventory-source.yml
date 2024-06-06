@@ -38,7 +38,7 @@ groups:
   debian10: "'debian10' in config.guestId|lower"
   debian11: "'debian11' in config.guestId|lower"
   debian12: "'debian12' in config.guestId|lower"
-  ubuntu: "'ubuntu' in image.offer|lower"
+  ubuntu: "'ubuntu' in config.guestId|lower"
   opensuse: "'opensuse' in image.offer|lower"
   sles: "'sles' in image.offer|lower"
 with_nested_properties: false
