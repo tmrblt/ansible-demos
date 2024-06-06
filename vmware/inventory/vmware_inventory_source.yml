@@ -1,0 +1,44 @@
+
+---
+compose:
+  ansible_host: guest.ipAddress
+  ansible_connection: "'winrm' if 'win' in config.guestId else ssh"
+  ansible_port: "'5985' if 'win' in config.guestId else 22"
+  ansible_winrm_transport: "'ntlm' if 'win' in config.guestId else None"
+hostnames:
+- 'config.name'
+filters:
+  - runtime.powerState == "poweredOn"
+properties:
+- config
+- runtime
+keyed_groups:
+- key: tag_category.OS
+  prefix: "vmware_tag_os_category_"
+  separator: ""
+groups:
+  linux: "'rhel' in config.guestId or 'centos' in config.guestId or 'ubuntu' in config.guestId or 'debian' in config.guestId or 'sles' in config.guestId or 'suse' in config.guestId or 'bsd' in config.guestId or 'linux' in config.guestId|lower"
+  windows: "'win' in config.guestId"
+  w2k12: "'2012' in 'config.guestFullName'"
+  w2k16: "'2016' in 'config.guestFullName'"
+  w2k19: "'2019' in 'config.guestFullName'"
+  w2k22: "'2022' in 'config.guestFullName'"
+  rhel: "'rhel' in config.guestId|lower"
+  rhel6: "'rhel6' in config.guestId|lower"
+  rhel7: "'rhel7' in config.guestId|lower"
+  rhel8: "'rhel8' in config.guestId|lower"
+  rhel9: "'rhel9' in config.guestId|lower"
+  centos: "'centos' in config.guestId|lower"
+  centos6: "'centos6' in config.guestId|lower"
+  centos7: "'centos7' in config.guestId|lower"
+  centos8: "'centos8' in config.guestId|lower"
+  centos9: "'centos9' in config.guestId|lower"
+  debian: "'debian' in config.guestId|lower"
+  debian9: "'debian9' in config.guestId|lower"
+  debian10: "'debian10' in config.guestId|lower"
+  debian11: "'debian11' in config.guestId|lower"
+  debian12: "'debian12' in config.guestId|lower"
+  ubuntu: "'ubuntu' in image.offer|lower"
+  opensuse: "'opensuse' in image.offer|lower"
+  sles: "'sles' in image.offer|lower"
+with_nested_properties: false
