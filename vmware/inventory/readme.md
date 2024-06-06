@@ -4,3 +4,6 @@ AAP -> Inventories -> Add -> Add Inventory -> Name:vmware-inventory -> Save -> S
 
 #### Verification:
 AAP -> Inventories -> Check Groups and Hosts
+
+#### Scheduling:
+AAP -> Inventories -> Sources -> vmware-inventory-source -> Schedules -> Add
