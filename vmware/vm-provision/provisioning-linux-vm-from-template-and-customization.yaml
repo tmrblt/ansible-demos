@@ -27,7 +27,7 @@
           - "{{ vm_dns_suffix_1 }}"
         script_text: |
           #!/bin/bash
-          echo "This VM brought to you by Ansible" >> /etc/motd
+          echo "This VM brought to you by Ansible" > /etc/motd
       wait_for_customization: yes
       wait_for_ip_address: true
       force: false
